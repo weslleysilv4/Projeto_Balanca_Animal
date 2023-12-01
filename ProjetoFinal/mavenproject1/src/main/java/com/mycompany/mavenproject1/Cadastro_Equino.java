@@ -40,7 +40,8 @@ public class Cadastro_Equino extends javax.swing.JFrame {
         } else {
             cav.setDoencaAnimal(false);
         }
-        
+        cav.setPesoAnimal(cav.calcPeso(cav.getPerimetroToracico()));
+            
         cav = GerEquino.getGerEquinoUnic().cadEquino(cav);
         
         if(cav != null){
@@ -108,8 +109,7 @@ public class Cadastro_Equino extends javax.swing.JFrame {
         btn_Sair = new javax.swing.JButton();
         lb_CadastroEquino = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        lb_Peso = new javax.swing.JLabel();
-        cx_Peso = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro Equino");
@@ -145,6 +145,11 @@ public class Cadastro_Equino extends javax.swing.JFrame {
         lb_PerimetroToracico.setText("Perimetro Toracico:");
 
         cx_PerimetroEquino.setToolTipText("Ex: 1.24");
+        cx_PerimetroEquino.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cx_PerimetroEquinoFocusLost(evt);
+            }
+        });
         cx_PerimetroEquino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cx_PerimetroEquinoActionPerformed(evt);
@@ -193,10 +198,12 @@ public class Cadastro_Equino extends javax.swing.JFrame {
         lb_CadastroEquino.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lb_CadastroEquino.setText("Cadastro Equino");
 
-        lb_Peso.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lb_Peso.setText("PESO:");
-
-        cx_Peso.setText("0.0");
+        jButton1.setText("Abrir Relatório de Animais");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,48 +213,44 @@ public class Cadastro_Equino extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btn_DoencaSim)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btn_DoencaNao))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lb_PerimetroToracico)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cx_PerimetroEquino, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lb_IdadeAnimal)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cx_IdadeEquino, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lb_DoencaEquino)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lb_AlturaEquino)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cx_AlturaEquino, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lb_CodAnimal)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cx_CodAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lb_CadastroEquino))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btn_Cadastrar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_Limpar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_Sair)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lb_Peso)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cx_Peso)))
-                        .addGap(83, 83, 83))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 50, Short.MAX_VALUE))))
+                        .addGap(0, 84, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_DoencaSim)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btn_DoencaNao))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lb_PerimetroToracico)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cx_PerimetroEquino, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lb_IdadeAnimal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cx_IdadeEquino, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lb_DoencaEquino)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lb_AlturaEquino)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cx_AlturaEquino, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lb_CadastroEquino))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_Cadastrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_Limpar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_Sair)
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lb_CodAnimal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cx_CodAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(65, 65, 65))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,8 +262,9 @@ public class Cadastro_Equino extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(lb_CodAnimal)
-                    .addComponent(cx_CodAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(cx_CodAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(cx_IdadeEquino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lb_IdadeAnimal))
@@ -278,18 +282,12 @@ public class Cadastro_Equino extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_DoencaSim)
                     .addComponent(btn_DoencaNao))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Cadastrar)
                     .addComponent(btn_Limpar)
                     .addComponent(btn_Sair))
                 .addGap(21, 21, 21))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_Peso)
-                    .addComponent(cx_Peso))
-                .addGap(246, 246, 246))
         );
 
         pack();
@@ -330,6 +328,14 @@ public class Cadastro_Equino extends javax.swing.JFrame {
     private void btn_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LimparActionPerformed
         limpar();
     }//GEN-LAST:event_btn_LimparActionPerformed
+
+    private void cx_PerimetroEquinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cx_PerimetroEquinoFocusLost
+
+    }//GEN-LAST:event_cx_PerimetroEquinoFocusLost
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Relatorio_Equino.getRelAnimaisUniq().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -383,7 +389,7 @@ public class Cadastro_Equino extends javax.swing.JFrame {
     private javax.swing.JTextField cx_CodAnimal;
     private javax.swing.JTextField cx_IdadeEquino;
     private javax.swing.JTextField cx_PerimetroEquino;
-    private javax.swing.JLabel cx_Peso;
+    private javax.swing.JButton jButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lb_AlturaEquino;
     private javax.swing.JLabel lb_CadastroEquino;
@@ -391,6 +397,5 @@ public class Cadastro_Equino extends javax.swing.JFrame {
     private javax.swing.JLabel lb_DoencaEquino;
     private javax.swing.JLabel lb_IdadeAnimal;
     private javax.swing.JLabel lb_PerimetroToracico;
-    private javax.swing.JLabel lb_Peso;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,60 +28,52 @@
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="btn_DoencaSim" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btn_DoencaNao" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lb_PerimetroToracico" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="cx_PerimetroEquino" min="-2" pref="148" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lb_IdadeAnimal" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="cx_IdadeEquino" min="-2" pref="122" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lb_DoencaEquino" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lb_AlturaEquino" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="cx_AlturaEquino" min="-2" pref="134" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lb_CodAnimal" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="cx_CodAnimal" min="-2" pref="138" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lb_CadastroEquino" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btn_Cadastrar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btn_Limpar" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btn_Sair" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lb_Peso" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="cx_Peso" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="jSeparator1" min="-2" pref="507" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="84" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jSeparator1" min="-2" pref="507" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btn_DoencaSim" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btn_DoencaNao" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="lb_PerimetroToracico" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="cx_PerimetroEquino" min="-2" pref="148" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="lb_IdadeAnimal" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cx_IdadeEquino" min="-2" pref="122" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lb_DoencaEquino" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lb_AlturaEquino" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cx_AlturaEquino" min="-2" pref="134" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lb_CadastroEquino" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btn_Cadastrar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btn_Limpar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btn_Sair" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lb_CodAnimal" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="cx_CodAnimal" min="-2" pref="138" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -98,8 +90,9 @@
               <Group type="103" groupAlignment="2" attributes="0">
                   <Component id="lb_CodAnimal" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="cx_CodAnimal" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
                   <Component id="cx_IdadeEquino" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="lb_IdadeAnimal" alignment="2" min="-2" max="-2" attributes="0"/>
@@ -121,21 +114,13 @@
                   <Component id="btn_DoencaSim" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_DoencaNao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="55" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btn_Cadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_Limpar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_Sair" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="128" pref="128" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lb_Peso" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cx_Peso" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -193,6 +178,7 @@
         <Property name="toolTipText" type="java.lang.String" value="Ex: 1.24"/>
       </Properties>
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cx_PerimetroEquinoFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cx_PerimetroEquinoActionPerformed"/>
       </Events>
     </Component>
@@ -257,18 +243,13 @@
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
-    <Component class="javax.swing.JLabel" name="lb_Peso">
+    <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="PESO:"/>
+        <Property name="text" type="java.lang.String" value="Abrir Relat&#xf3;rio de Animais"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="cx_Peso">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="0.0"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

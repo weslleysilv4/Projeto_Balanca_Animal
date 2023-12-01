@@ -45,6 +45,8 @@ public class JanPrinc extends javax.swing.JFrame {
         menuPrinc = new javax.swing.JMenu();
         menuPrincCad = new javax.swing.JMenu();
         Equino = new javax.swing.JMenuItem();
+        menuRelatoriosAnimais = new javax.swing.JMenu();
+        Equino1 = new javax.swing.JMenuItem();
         menuItem_Sair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,6 +67,18 @@ public class JanPrinc extends javax.swing.JFrame {
         menuPrincCad.add(Equino);
 
         menuPrinc.add(menuPrincCad);
+
+        menuRelatoriosAnimais.setText("Relatórios");
+
+        Equino1.setText("Equino");
+        Equino1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Equino1ActionPerformed(evt);
+            }
+        });
+        menuRelatoriosAnimais.add(Equino1);
+
+        menuPrinc.add(menuRelatoriosAnimais);
 
         menuItem_Sair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menuItem_Sair.setText("Sair");
@@ -107,6 +121,10 @@ public class JanPrinc extends javax.swing.JFrame {
         Cadastro_Equino.getCadEquiUnic().setVisible(true);
     }//GEN-LAST:event_EquinoActionPerformed
 
+    private void Equino1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Equino1ActionPerformed
+        Relatorio_Equino.getRelAnimaisUniq().setVisible(true);
+    }//GEN-LAST:event_Equino1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -144,10 +162,12 @@ public class JanPrinc extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Equino;
+    private javax.swing.JMenuItem Equino1;
     private javax.swing.JMenuBar barMenuPrinc;
     private javax.swing.JLabel label_Principal;
     private javax.swing.JMenuItem menuItem_Sair;
     private javax.swing.JMenu menuPrinc;
     private javax.swing.JMenu menuPrincCad;
+    private javax.swing.JMenu menuRelatoriosAnimais;
     // End of variables declaration//GEN-END:variables
 }
