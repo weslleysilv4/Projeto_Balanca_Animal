@@ -32,8 +32,8 @@ public class Cadastro_Equino extends javax.swing.JFrame {
         
         cav.setCodAnimal(Integer.parseInt(cx_CodAnimal.getText()));
         cav.setIdadeAnimal(Integer.parseInt(cx_IdadeEquino.getText()));
-        cav.setAlturaEquino(Double.parseDouble(cx_AlturaEquino.getText()));
-        cav.setPerimetroToracico(Double.parseDouble(cx_PerimetroEquino.getText()));
+        cav.setAlturaEquino(Double.valueOf(cx_AlturaEquino.getText()));
+        cav.setPerimetroToracico(Double.valueOf(cx_PerimetroEquino.getText()));
         
         if(btn_DoencaSim.isSelected()){
             cav.setDoencaAnimal(true);

@@ -5,6 +5,7 @@
 package com.mycompany.mavenproject1;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -39,6 +40,47 @@ public class Relatorio_Equino extends javax.swing.JFrame {
             dispose();
         }
     }
+     
+      public void listTab(){
+        DefaultTableModel modelo = (DefaultTableModel)tbRelEquino.getModel();
+        int posLin = 0;
+        
+        modelo.setRowCount(posLin);
+        
+        for(Equino cav:GerEquino.getGerEquinoUnic().getBdEquino()){ //for each
+            modelo.insertRow(posLin, new Object[]{
+                cav.getCodAnimal(),
+                cav.getIdadeAnimal(),
+                cav.getAlturaEquino(),
+                cav.getPerimetroToracico(),
+                cav.getPesoAnimal(),
+                cav.getDoencaAnimal()
+            });
+            posLin++;
+        }
+    }
+    
+    public void selectTab(){
+    
+        String valLinTab = "";
+        
+        int posLin = tbRelEquino.getSelectedRow();
+        int col = 0;
+        for(col = 0; col < tbRelEquino.getColumnCount(); col++){
+            valLinTab += tbRelEquino.getModel().getValueAt(posLin, col).toString();
+            
+            if(col+1 < tbRelEquino.getColumnCount()){
+                valLinTab += " - ";
+            }
+        }
+        
+        JOptionPane.showMessageDialog(
+                null,
+                "Conteudo: "+valLinTab,
+                "VALORES DA LINHA --> "+col,
+                1
+        );
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,27 +94,38 @@ public class Relatorio_Equino extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbRelEquino = new javax.swing.JTable();
         btn_SAir = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Relatório Equinos");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbRelEquino.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "IDADE", "ALTURA", "P.T", "PESO"
+                "ID", "IDADE", "ALTURA", "P.T", "PESO", "DOENÇA"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tbRelEquino.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbRelEquinoMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbRelEquino);
 
         btn_SAir.setText("Sair");
         btn_SAir.addActionListener(new java.awt.event.ActionListener() {
@@ -127,6 +180,14 @@ public class Relatorio_Equino extends javax.swing.JFrame {
         sair();
     }//GEN-LAST:event_btn_SAirActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        listTab();
+    }//GEN-LAST:event_formWindowActivated
+
+    private void tbRelEquinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbRelEquinoMouseClicked
+        selectTab();
+    }//GEN-LAST:event_tbRelEquinoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -169,6 +230,6 @@ public class Relatorio_Equino extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbRelEquino;
     // End of variables declaration//GEN-END:variables
 }
