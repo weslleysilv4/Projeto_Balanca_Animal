@@ -1,8 +1,5 @@
 package com.mycompany.mavenproject1;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Wes
@@ -10,10 +7,10 @@ import java.util.logging.Logger;
 public class Bovino extends Animal implements CalcPeso{
     private Double pesoEmArroba;
 
-    public Bovino(){
+    public Bovino() throws PesoException{
             setCodAnimal(0);
             setIdadeAnimal(0);
-            setDoencaAnimal(false);
+            setDoencaAnimal("");
             setPesoAnimal(0.0);
             pesoEmArroba = 0.0;
     }
@@ -23,11 +20,10 @@ public class Bovino extends Animal implements CalcPeso{
     }
 
     public void setPesoEmArroba(Double pesoEmArroba) throws PesoException{
-        if(pesoEmArroba > 0){
-            this.pesoEmArroba = calcPeso(pesoEmArroba);
-            return;
+        if(pesoEmArroba < 0){
+            throw new PesoException("O peso não pode ser Negativo");
         }
-        throw new PesoException();
+        this.pesoEmArroba = calcPeso(pesoEmArroba);
     }
 
     // Sobrescrita

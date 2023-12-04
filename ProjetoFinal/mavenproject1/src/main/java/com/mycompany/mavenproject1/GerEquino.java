@@ -11,8 +11,7 @@ import javax.swing.JOptionPane;
 public class GerEquino {
     private Equino equino;
     private List<Equino> bdEquino;
-    
-    static GerEquino gerEquinoUnic;
+    private static GerEquino gerEquinoUnic;
     
     
     private GerEquino () {
@@ -41,9 +40,9 @@ public class GerEquino {
     }
 
     public Equino consEquino(Equino cav) {
-        for(Equino cav1 : bdEquino){
-            if(cav1.getCodAnimal() == cav.getCodAnimal()){
-                return cav;
+        for(int i = 0; i < bdEquino.size(); i++){
+            if(cav.getCodAnimal() == bdEquino.get(i).getCodAnimal()){
+                return bdEquino.get(i);
             }
         }
         return null;
@@ -60,29 +59,53 @@ public class GerEquino {
         }
     }
     
-    public Equino attEquino(Equino cav){
+    public Equino attEquino(Equino cav) throws AlturaException{
         for(int i = 0; i < bdEquino.size(); i++){
-            if(cav.getCodAnimal() == bdEquino.get(i).getCodAnimal()){
-                cav = bdEquino.get(i);
+            try{
+                if(cav.getCodAnimal() == bdEquino.get(i).getCodAnimal()){
+                    cav = bdEquino.get(i);
+
+                    String idade = JOptionPane.showInputDialog(
+                            null,
+                            "Informe a nova Idade do Animal: ",
+                            "ATUALIZAÇÃO IDADE DO ANIMAL",
+                            JOptionPane.QUESTION_MESSAGE
+                    );
+                    String altura = JOptionPane.showInputDialog(
+                            null,
+                            "Informe a nova Altura do Animal: ",
+                            "ATUALIZAÇÃO ALTURA DO ANIMAL",
+                            JOptionPane.QUESTION_MESSAGE
+                    );
+                    String perimetroT = JOptionPane.showInputDialog(
+                            null,
+                            "Informe o novo Perimetro Torarico:",
+                            "ATUALIZAÇÃO DO PERIMETRO TORARICO",
+                            JOptionPane.QUESTION_MESSAGE
+                    );
+                    String doença = JOptionPane.showInputDialog(
+                            null,
+                            "Caso possua Doença, informe",
+                            "ATUALIZAÇÃO DOENÇA",
+                            JOptionPane.QUESTION_MESSAGE
+                    );
+
+                    if(!idade.equals(""))cav.setIdadeAnimal(Integer.parseInt(idade));
+                    if(!altura.equals(""))cav.setAlturaEquino(Double.parseDouble(altura));
+                    if(!perimetroT.equals(""))cav.setPerimetroToracico(Double.parseDouble(perimetroT));
+                    if(!doença.equals(""))cav.setDoencaAnimal(doença);
+
+                    bdEquino.set(i, cav);
+                    return bdEquino.get(i);
+                }
                 
-                String idade = JOptionPane.showInputDialog(
+            } catch(NumberFormatException nfe){
+                JOptionPane.showMessageDialog(
                         null,
-                        "Informe a nova Idade do Animal: ",
-                        "Atualização de Idade",
-                        JOptionPane.QUESTION_MESSAGE
+                        "ERRO, o valor " + nfe + " precisa ser um inteiro.",
+                        "ERRO",
+                        JOptionPane.ERROR_MESSAGE
                 );
-                String altura = JOptionPane.showInputDialog(
-                        null,
-                        "Informe a nova Altura do Animal: ",
-                        "Atualização de Altura",
-                        JOptionPane.QUESTION_MESSAGE
-                );
-                
-                if(!idade.equals(""))cav.setIdadeAnimal(Integer.parseInt(idade));
-                if(!altura.equals(""))cav.setAlturaEquino(Double.parseDouble(altura));
-               
-                bdEquino.set(i, cav);
-                return bdEquino.get(i);
             }
         }
         return null;

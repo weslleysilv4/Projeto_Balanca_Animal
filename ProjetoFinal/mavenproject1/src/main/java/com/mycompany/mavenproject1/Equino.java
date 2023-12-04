@@ -8,10 +8,10 @@ public class Equino extends Animal implements CalcPeso{
     private Double perimetroToracico;
     private Double alturaEquino;
 
-    public Equino(){
+    public Equino() throws PesoException{
             setCodAnimal(0);
             setIdadeAnimal(0);
-            setDoencaAnimal(false);
+            setDoencaAnimal("");
             setPesoAnimal(0.0);
             // Equinos
             perimetroToracico = 0.0;
@@ -30,7 +30,10 @@ public class Equino extends Animal implements CalcPeso{
         return alturaEquino;
     }
 
-    public void setAlturaEquino(Double alturaEquino){
+    public void setAlturaEquino(Double alturaEquino) throws AlturaException{
+        if(alturaEquino <0) {
+            throw new AlturaException("A altura não pode ser menor que 0");
+        }
         this.alturaEquino = alturaEquino;
     }
 

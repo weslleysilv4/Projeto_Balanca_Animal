@@ -9,7 +9,7 @@ public abstract class Animal {
     private int codAnimal;
     private int idadeAnimal;
     private Double pesoAnimal;
-    private Boolean doencaAnimal;
+    private String doencaAnimal;
 
     //Getters and setters
 
@@ -33,15 +33,18 @@ public abstract class Animal {
         return pesoAnimal;
     }
 
-    public void setPesoAnimal(Double pesoAnimal){
+    public void setPesoAnimal(Double pesoAnimal) throws PesoException{
+        if(pesoAnimal < 0){
+            throw new PesoException("O peso do Animal não pode ser negativo.");
+        }
         this.pesoAnimal = pesoAnimal;
     }
 
-    public Boolean getDoencaAnimal() {
+    public String getDoencaAnimal() {
         return doencaAnimal;
     }
 
-    public void setDoencaAnimal(Boolean doencaAnimal) {
+    public void setDoencaAnimal(String doencaAnimal) {
         this.doencaAnimal = doencaAnimal;
     }
 

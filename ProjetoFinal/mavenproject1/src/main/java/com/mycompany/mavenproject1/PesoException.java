@@ -10,8 +10,7 @@ package com.mycompany.mavenproject1;
  */
 
 public class PesoException extends Exception {
-    public PesoException(){
-         super("PESO NEGATIVO");
-        System.out.println("\n O peso não pode ser negativo! ");
+    public PesoException(String errorMessage){
+         super(errorMessage);
     }
 }
